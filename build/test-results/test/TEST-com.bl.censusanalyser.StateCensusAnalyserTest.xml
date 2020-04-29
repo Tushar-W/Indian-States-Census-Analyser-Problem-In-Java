@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.bl.censusanalyser.StateCensusAnalyserTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-04-29T13:54:07" hostname="DESKTOP-2TJPHRI" time="1.05">
+  <properties/>
+  <testcase name="givenIndianStateCensusCSVFile_ShouldReturnsCorrectRecords" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="1.05"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
