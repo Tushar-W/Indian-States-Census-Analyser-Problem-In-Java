@@ -31,10 +31,6 @@ public class StateCensusAnalyser {
         int numOfEnteries = 0;
         try {
             Reader reader = Files.newBufferedReader(Paths.get(csvFilePath));
-            CsvToBeanBuilder<CSVStateCode> csvToBeanBuilder = new CsvToBeanBuilder<>(reader);
-            csvToBeanBuilder.withType(CSVStateCode.class);
-            csvToBeanBuilder.withIgnoreLeadingWhiteSpace(true);
-            CsvToBean<CSVStateCode> csvToBean = csvToBeanBuilder.build();
             Iterator<CSVStateCode> csvStateCodeIterator = this.getCSVFileIterator(reader,CSVStateCode.class);
             Iterable<CSVStateCode> csvIterable=() ->csvStateCodeIterator;
             numOfEnteries = (int) StreamSupport.stream(csvIterable.spliterator(),false).count();
@@ -53,4 +49,11 @@ public class StateCensusAnalyser {
         return csvToBean.iterator();
     }
 
+    public void loadIndianStateCensusData(String csvFilePath,Class fileType) {
+        if (fileType.equals(CSVStateCensus.class))
+            loadIndianStateCensusData(csvFilePath);
+        else {
+            throw new CensusAnalyserException("WRONG FILE TYPE", CensusAnalyserException.ExceptionType.CENSUS_TYPE_PROBLEM);
+        }
+    }
 }
