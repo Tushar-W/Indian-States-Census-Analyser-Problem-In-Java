@@ -36,6 +36,18 @@ public class StateCensusAnalyserTest {
         }
     }
 
+    //TC1.3
+    @Test
+    public void givenIndiaStateCensusCSVFile_WhenWrongType_ShouldThrowException() {
+        try {
+            ExpectedException exceptionRule = ExpectedException.none();
+            exceptionRule.expect(CensusAnalyserException.class);
+            stateCensusAnalyser.loadIndianStateCensusData(INDIAN_STATES_CENSUS_CSV_FILE_PATH, CensusAnalyserException.class);
+        }catch(CensusAnalyserException e) {
+            Assert.assertEquals(CensusAnalyserException.ExceptionType.CENSUS_TYPE_PROBLEM,e.type);
+        }
+    }
+
     //TC2.1
     @Test
     public void givenIndianStateCodeCSVFile_ShouldReturnsCorrectRecords() {
