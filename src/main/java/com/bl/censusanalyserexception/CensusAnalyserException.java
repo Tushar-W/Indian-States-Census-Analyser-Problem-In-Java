@@ -2,7 +2,7 @@ package com.bl.censusanalyserexception;
 
 public class CensusAnalyserException extends RuntimeException{
     public enum ExceptionType {
-        CENSUS_FILE_PROBLEM
+        CENSUS_FILE_PROBLEM,CENSUS_TYPE_PROBLEM
     }
 
     public ExceptionType type;

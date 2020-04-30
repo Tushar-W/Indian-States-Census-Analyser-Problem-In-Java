@@ -1,5 +1,6 @@
 package com.bl.censusanalyser;
 
+import com.bl.censusanalyserexception.CensusAnalyserException;
 import com.bl.csvstatecensus.CSVStateCensus;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
@@ -27,5 +28,13 @@ public class StateCensusAnalyser {
             e.printStackTrace();
         }
         return namOfEateries;
+    }
+
+    public void loadIndianStateCensusData(String csvFilePath,Class fileType) {
+        if (fileType.equals(CSVStateCensus.class))
+            loadIndianStateCensusData(csvFilePath);
+        else {
+            throw new CensusAnalyserException("WRONG FILE TYPE", CensusAnalyserException.ExceptionType.CENSUS_TYPE_PROBLEM);
+        }
     }
 }

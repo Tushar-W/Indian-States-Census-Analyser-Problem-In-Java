@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.bl.censusanalyser.StateCensusAnalyserTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-04-30T04:12:25" hostname="DESKTOP-2TJPHRI" time="1.037">
+<testsuite name="com.bl.censusanalyser.StateCensusAnalyserTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2020-04-30T10:02:49" hostname="DESKTOP-2TJPHRI" time="4.773">
   <properties/>
-  <testcase name="givenIndiaStateCensusData_WithWrongFile_ShouldThrowException" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.072"/>
-  <testcase name="givenIndianStateCensusCSVFile_ShouldReturnsCorrectRecords" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.963"/>
+  <testcase name="givenIndiaStateCensusData_WithWrongFile_ShouldThrowException" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.411"/>
+  <testcase name="givenIndiaStateCensusCSVFile_WhenWrongType_ShouldThrowException" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.003"/>
+  <testcase name="givenIndianStateCensusCSVFile_ShouldReturnsCorrectRecords" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="4.357"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[java.nio.file.NoSuchFileException: .\src\main\resources\IndiaStateCensusData.csv
 	at sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:79)
@@ -15,8 +16,8 @@
 	at java.nio.file.Files.newInputStream(Files.java:152)
 	at java.nio.file.Files.newBufferedReader(Files.java:2784)
 	at java.nio.file.Files.newBufferedReader(Files.java:2816)
-	at com.bl.censusanalyser.StateCensusAnalyser.loadIndianStateCensusData(StateCensusAnalyser.java:17)
-	at com.bl.censusanalyser.StateCensusAnalyserTest.givenIndiaStateCensusData_WithWrongFile_ShouldThrowException(StateCensusAnalyserTest.java:32)
+	at com.bl.censusanalyser.StateCensusAnalyser.loadIndianStateCensusData(StateCensusAnalyser.java:18)
+	at com.bl.censusanalyser.StateCensusAnalyserTest.givenIndiaStateCensusData_WithWrongFile_ShouldThrowException(StateCensusAnalyserTest.java:33)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
