@@ -1,6 +1,7 @@
 package com.bl.censusanalyser;
 
 import com.bl.censusanalyserexception.CensusAnalyserException;
+import com.bl.csvstatecensus.CSVStateCensus;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -32,6 +33,18 @@ public class StateCensusAnalyserTest {
             int noOfRecords = stateCensusAnalyser.loadIndianStateCensusData(WRONG_CSV_FILE_PATH);
         }catch(CensusAnalyserException e) {
             Assert.assertEquals(CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM,e.type);
+        }
+    }
+
+    //TC1.3
+    @Test
+    public void givenIndiaStateCensusCSVFile_WhenWrongType_ShouldThrowException() {
+        try {
+            ExpectedException exceptionRule = ExpectedException.none();
+            exceptionRule.expect(CensusAnalyserException.class);
+            stateCensusAnalyser.loadIndianStateCensusData(INDIAN_STATES_CENSUS_CSV_FILE_PATH, CensusAnalyserException.class);
+        }catch(CensusAnalyserException e) {
+            Assert.assertEquals(CensusAnalyserException.ExceptionType.CENSUS_TYPE_PROBLEM,e.type);
         }
     }
 }
