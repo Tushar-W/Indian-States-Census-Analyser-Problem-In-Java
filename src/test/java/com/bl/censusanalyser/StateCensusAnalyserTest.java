@@ -43,4 +43,16 @@ public class StateCensusAnalyserTest {
             Assert.assertEquals(37, noOfRecords);
     }
 
+    //TC2.2
+    @Test
+    public void givenIndiaStateCodeData_WithWrongFile_ShouldThrowException() {
+        try {
+            ExpectedException exceptionRule = ExpectedException.none();
+            exceptionRule.expect(CensusAnalyserException.class);
+            int noOfRecords = stateCensusAnalyser.loadIndianStateCodeData(WRONG_CSV_FILE_PATH);
+        }catch(CensusAnalyserException e) {
+            Assert.assertEquals(CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM,e.type);
+        }
+    }
+
 }
