@@ -30,11 +30,15 @@ public class StateCensusAnalyser {
         return namOfEateries;
     }
 
-    public void loadIndianStateCensusData(String csvFilePath,Class fileType) {
-        if (fileType.equals(CSVStateCensus.class))
-            loadIndianStateCensusData(csvFilePath);
-        else {
-            throw new CensusAnalyserException("WRONG FILE TYPE", CensusAnalyserException.ExceptionType.CENSUS_TYPE_PROBLEM);
+    public void loadIndianStateCensusData(String csvFilePath,Class fileType,String seperator) {
+        if (seperator.equals(",")) {
+            if (fileType.equals(CSVStateCensus.class))
+                loadIndianStateCensusData(csvFilePath);
+            else {
+                throw new CensusAnalyserException("FILE TYPE IS WRONG", CensusAnalyserException.ExceptionType.FILE_TYPE_NOT_FOUND);
+            }
+        }else{
+            throw new CensusAnalyserException("FILE DELIMITER IS WRONG",CensusAnalyserException.ExceptionType.NO_FILE_DELIMITER_FOUND);
         }
     }
 }
