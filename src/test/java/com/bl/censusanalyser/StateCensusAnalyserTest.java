@@ -1,6 +1,7 @@
 package com.bl.censusanalyser;
 
 import com.bl.censusanalyserexception.CensusAnalyserException;
+import com.bl.csvstatecode.CSVStateCode;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -103,5 +104,18 @@ public class StateCensusAnalyserTest {
             Assert.assertEquals(CensusAnalyserException.ExceptionType.FILE_TYPE_NOT_FOUND,e.type);
         }
     }
+
+    //TC2.4
+    @Test
+    public void givenIndiaStateCodeCSVFile_WhenWrongDelimiter_ShouldThrowException() {
+        try {
+            ExpectedException exceptionRule = ExpectedException.none();
+            exceptionRule.expect(CensusAnalyserException.class);
+            stateCensusAnalyser.loadIndianStateCensusData(INDIAN_STATES_CODE_CSV_FILE_PATH, CSVStateCode.class,";");
+        }catch (CensusAnalyserException e){
+            Assert.assertEquals(CensusAnalyserException.ExceptionType.NO_FILE_DELIMITER_FOUND,e.type);
+        }
+    }
+
 
 }
