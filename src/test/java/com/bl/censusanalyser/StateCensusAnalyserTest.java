@@ -62,4 +62,16 @@ public class StateCensusAnalyserTest {
         }
     }
 
+    //TC1.5
+    @Test
+    public void givenIndiaStateCensusCSVFile_WhenWrongHeader_ShouldThrowException() {
+        try {
+            ExpectedException exceptionRule = ExpectedException.none();
+            exceptionRule.expect(CensusAnalyserException.class);
+            stateCensusAnalyser.loadIndianStateCensusData(INDIAN_STATES_CENSUS_CSV_FILE_WITH_WRONG_HEADER);
+        }catch (CensusAnalyserException e){
+            Assert.assertEquals(CensusAnalyserException.ExceptionType.FILE_WRONG_HEADER,e.type);
+        }
+    }
+
 }
