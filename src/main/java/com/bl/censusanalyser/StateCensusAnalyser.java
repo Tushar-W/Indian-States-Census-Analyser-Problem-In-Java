@@ -26,6 +26,9 @@ public class StateCensusAnalyser {
             return namOfEateries;
         } catch (IOException e) {
             e.printStackTrace();
+        }catch(Exception e) {
+            throw new CensusAnalyserException(e.getMessage(),
+                                               CensusAnalyserException.ExceptionType.FILE_WRONG_HEADER);
         }
         return namOfEateries;
     }
@@ -35,10 +38,12 @@ public class StateCensusAnalyser {
             if (fileType.equals(CSVStateCensus.class))
                 loadIndianStateCensusData(csvFilePath);
             else {
-                throw new CensusAnalyserException("FILE TYPE IS WRONG", CensusAnalyserException.ExceptionType.FILE_TYPE_NOT_FOUND);
+                throw new CensusAnalyserException("FILE TYPE IS WRONG",
+                                                  CensusAnalyserException.ExceptionType.FILE_TYPE_NOT_FOUND);
             }
         }else{
-            throw new CensusAnalyserException("FILE DELIMITER IS WRONG",CensusAnalyserException.ExceptionType.NO_FILE_DELIMITER_FOUND);
+            throw new CensusAnalyserException("FILE DELIMITER IS WRONG",
+                                                CensusAnalyserException.ExceptionType.NO_FILE_DELIMITER_FOUND);
         }
     }
 }
