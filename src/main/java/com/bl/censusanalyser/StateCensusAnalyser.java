@@ -36,10 +36,6 @@ public class StateCensusAnalyser {
         int numOfEnteries = 0;
         try {
             Reader reader = Files.newBufferedReader(Paths.get(csvFilePath));
-            CsvToBeanBuilder<CSVStateCode> csvToBeanBuilder = new CsvToBeanBuilder<>(reader);
-            csvToBeanBuilder.withType(CSVStateCode.class);
-            csvToBeanBuilder.withIgnoreLeadingWhiteSpace(true);
-            CsvToBean<CSVStateCode> csvToBean = csvToBeanBuilder.build();
             Iterator<CSVStateCode> csvStateCodeIterator = this.getCSVFileIterator(reader,CSVStateCode.class);
             Iterable<CSVStateCode> csvIterable=() ->csvStateCodeIterator;
             numOfEnteries = (int) StreamSupport.stream(csvIterable.spliterator(),false).count();
