@@ -1,6 +1,6 @@
 package com.bl.censusanalyserexception;
 
-public class CensusAnalyserException extends RuntimeException{
+public class CensusAnalyserException extends RuntimeException {
     public enum ExceptionType {
         CENSUS_FILE_PROBLEM,FILE_TYPE_NOT_FOUND,NO_FILE_DELIMITER_FOUND,FILE_WRONG_HEADER
     }
