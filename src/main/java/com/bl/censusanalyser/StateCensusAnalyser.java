@@ -1,17 +1,18 @@
 package com.bl.censusanalyser;
 
 import com.bl.censusanalyserexception.CensusAnalyserException;
+import com.bl.csvbuilderexception.CSVBuilderException;
+import com.bl.csvbuilderfactory.CSVBuilderFactory;
+import com.bl.csvbuilderinterface.ICSVBuilder;
 import com.bl.csvstatecensus.CSVStateCensus;
 import com.bl.csvstatecode.CSVStateCode;
-import com.bl.opencsvbuilder.OpenCSVBuilder;
-import com.opencsv.bean.CsvToBean;
-import com.opencsv.bean.CsvToBeanBuilder;
 import org.apache.commons.io.FilenameUtils;
 
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Iterator;
+import java.util.List;
 import java.util.stream.StreamSupport;
 
 public class StateCensusAnalyser {
@@ -19,14 +20,14 @@ public class StateCensusAnalyser {
         int numOfEnteries = 0;
         try {
             Reader reader = Files.newBufferedReader(Paths.get(csvFilePath));
-            Iterator<CSVStateCensus> censusCSVIterator = new OpenCSVBuilder().getCSVFileIterator(reader,CSVStateCensus.class);
-            return getCount(censusCSVIterator);
+            ICSVBuilder csvBuilder = CSVBuilderFactory.createCSVBuilder();
+            List<CSVStateCensus> censusCSVList = csvBuilder.getCSVFileList(reader,CSVStateCensus.class);
+            return censusCSVList.size();
         } catch (IOException e) {
             throw new CensusAnalyserException(e.getMessage(),
                     CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM);
-        }catch(RuntimeException e) {
-            throw new CensusAnalyserException(e.getMessage(),
-                    CensusAnalyserException.ExceptionType.FILE_WRONG_HEADER);
+        }catch (RuntimeException e) {
+            throw new CensusAnalyserException(e.getMessage(), CensusAnalyserException.ExceptionType.FILE_WRONG_HEADER);
         }
 
     }
@@ -35,14 +36,14 @@ public class StateCensusAnalyser {
         int numOfEnteries = 0;
         try {
             Reader reader = Files.newBufferedReader(Paths.get(csvFilePath));
-            Iterator<CSVStateCode> csvStateCodeIterator = new OpenCSVBuilder().getCSVFileIterator(reader,CSVStateCode.class);
-            return getCount(csvStateCodeIterator);
+            ICSVBuilder csvBuilder = CSVBuilderFactory.createCSVBuilder();
+            List<CSVStateCode> codeCSVList = csvBuilder.getCSVFileList(reader,CSVStateCode.class);
+            return codeCSVList.size();
         } catch (IOException e) {
             throw new CensusAnalyserException(e.getMessage(),
                                               CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM);
-        }catch(RuntimeException e) {
-            throw new CensusAnalyserException(e.getMessage(),
-                    CensusAnalyserException.ExceptionType.FILE_WRONG_HEADER);
+        }catch (RuntimeException e) {
+            throw new CensusAnalyserException(e.getMessage(), CensusAnalyserException.ExceptionType.FILE_WRONG_HEADER);
         }
     }
 
@@ -64,6 +65,10 @@ public class StateCensusAnalyser {
     public <E> int getCount(Iterator<E> CSVIterator){
         Iterable<E> csvIterable=() ->CSVIterator;
         return (int) StreamSupport.stream(csvIterable.spliterator(),false).count();
+    }
+
+    public String getStateWiseSortedCensusData(String indiaStateCodeCsvFilePath) {
+        return null;
     }
 
 }
