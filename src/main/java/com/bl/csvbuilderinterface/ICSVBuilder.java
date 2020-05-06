@@ -1,12 +1,14 @@
 package com.bl.csvbuilderinterface;
 
+import com.bl.csvbuilderexception.CSVBuilderException;
+
 import java.io.Reader;
 import java.util.Iterator;
 import java.util.List;
 
 public interface ICSVBuilder <E>{
-    Iterator<E> getCSVFileIterator(Reader reader, Class<E> csvStatesClass);
+    public Iterator<E> getCSVFileIterator(Reader reader, Class csvStatesClass);
 
-    List<E> getCSVFileList(Reader reader, Class<E> indiaCensusCSVClass);
+    public  List<E> getCSVFileList(Reader reader, Class indiaCensusCSVClass);
 }
 
