@@ -18,7 +18,6 @@ import java.util.stream.StreamSupport;
 public class StateCensusAnalyser<E> {
 
     List<E> csvStateFile = null;
-
     Map<String,E> csvStateMap = new HashMap<>();
 
     public int loadIndianStateCensusData(String csvFilePath) {
