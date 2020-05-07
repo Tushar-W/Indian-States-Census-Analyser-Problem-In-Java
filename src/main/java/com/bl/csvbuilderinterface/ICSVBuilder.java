@@ -1,7 +1,5 @@
 package com.bl.csvbuilderinterface;
 
-import com.bl.csvbuilderexception.CSVBuilderException;
-
 import java.io.Reader;
 import java.util.Iterator;
 import java.util.List;
