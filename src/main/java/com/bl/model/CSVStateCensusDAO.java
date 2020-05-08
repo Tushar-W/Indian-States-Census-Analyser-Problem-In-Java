@@ -1,7 +1,7 @@
-package com.bl.csvcensusdao;
+package com.bl.model;
 
-import com.bl.csvstatecensus.CSVStateCensus;
-import com.bl.csvstatecode.CSVStateCode;
+import com.bl.model.CSVStateCensus;
+import com.bl.model.CSVStateCode;
 
 public class CSVStateCensusDAO {
 
@@ -20,6 +20,9 @@ public class CSVStateCensusDAO {
 
     public CSVStateCensusDAO(CSVStateCode indiaCodeCSV) {
         stateCode = indiaCodeCSV.stateCode;
+    }
+
+    public CSVStateCensusDAO() {
     }
 }
 

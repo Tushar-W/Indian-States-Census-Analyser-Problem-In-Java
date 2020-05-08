@@ -1,4 +1,4 @@
-package com.bl.csvbuilderinterface;
+package com.bl.opencsv;
 
 import java.io.Reader;
 import java.util.Iterator;

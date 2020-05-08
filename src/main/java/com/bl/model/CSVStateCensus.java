@@ -1,4 +1,4 @@
-package com.bl.csvstatecensus;
+package com.bl.model;
 
 import com.opencsv.bean.CsvBindByName;
 

@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.bl.censusanalyser.StateCensusAnalyserTest" tests="17" skipped="0" failures="0" errors="0" timestamp="2020-05-08T03:50:56" hostname="DESKTOP-2TJPHRI" time="1.554">
+<testsuite name="com.bl.censusanalyser.StateCensusAnalyserTest" tests="17" skipped="0" failures="0" errors="0" timestamp="2020-05-08T19:09:48" hostname="DESKTOP-2TJPHRI" time="1.514">
   <properties/>
-  <testcase name="givenIndiaStateCensusData_WithWrongFile_ShouldThrowException" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.016"/>
-  <testcase name="givenIndianStateCodeData_WhenSortedOnState_ShouldReturnSortedResult" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.616"/>
+  <testcase name="givenIndiaStateCensusData_WithWrongFile_ShouldThrowException" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.023"/>
+  <testcase name="givenIndianStateCodeData_WhenSortedOnState_ShouldReturnSortedResult" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.486"/>
   <testcase name="givenIndiaStateCodeData_WithWrongFile_ShouldThrowException" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.0"/>
-  <testcase name="givenStateCensusDensityData_whenSortedOnStates_shouldReturnSortedResult" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.126"/>
-  <testcase name="givenIndiaStateCodeCSVFile_WhenWrongType_ShouldThrowException" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.012"/>
+  <testcase name="givenIndiaStateCodeCSVFile_WhenWrongType_ShouldThrowException" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.01"/>
   <testcase name="givenIndiaStateCensusCSVFile_WhenWrongDelimiter_ShouldThrowException" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.0"/>
-  <testcase name="givenIndianStateCodeData_WhenSortedOnState_ShouldReturnSortedEndStateCode" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.094"/>
-  <testcase name="givenIndianStateCodeCSVFile_ShouldReturnsCorrectRecords" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.069"/>
-  <testcase name="givenIndianCensusData_WhenSortedOnState_ShouldReturnSortedResult" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.116"/>
-  <testcase name="givenIndianCensusData_WhenSortedOnState_ShouldReturnEndState" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.13"/>
-  <testcase name="givenStateCensusPopulationData_whenSortedOnStates_shouldReturnSortedResult" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.164"/>
-  <testcase name="givenIndiaStateCensusCSVFile_WhenWrongHeader_ShouldThrowException" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.021"/>
+  <testcase name="givenStateCensusPopulationData_WhenSortedOnStates_ShouldReturnSortedResult" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.261"/>
+  <testcase name="givenIndianStateCodeData_WhenSortedOnState_ShouldReturnSortedEndStateCode" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.069"/>
+  <testcase name="givenIndianStateCodeCSVFile_ShouldReturnsCorrectRecords" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.149"/>
+  <testcase name="givenIndianCensusData_WhenSortedOnState_ShouldReturnSortedResult" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.112"/>
+  <testcase name="givenIndianCensusData_WhenSortedOnState_ShouldReturnEndState" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.094"/>
+  <testcase name="givenIndiaStateCensusCSVFile_WhenWrongHeader_ShouldThrowException" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.022"/>
   <testcase name="givenIndiaStateCodeCSVFile_WhenWrongHeader_ShouldThrowException" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.001"/>
-  <testcase name="givenIndiaStateCensusCSVFile_WhenWrongType_ShouldThrowException" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.001"/>
-  <testcase name="givenStateCensusAreaData_whenSortedOnStates_shouldReturnSortedResult" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.098"/>
-  <testcase name="givenIndianStateCensusCSVFile_ShouldReturnsCorrectRecords" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.083"/>
+  <testcase name="givenStateCensusAreaData_WhenSortedOnStates_ShouldReturnSortedResult" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.102"/>
+  <testcase name="givenIndiaStateCensusCSVFile_WhenWrongType_ShouldThrowException" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.0"/>
+  <testcase name="givenStateCensusDensityData_WhenSortedOnStates_ShouldReturnSortedResult" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.095"/>
+  <testcase name="givenIndianStateCensusCSVFile_ShouldReturnsCorrectRecords" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.08"/>
   <testcase name="givenIndiaStateCodeCSVFile_WhenWrongDelimiter_ShouldThrowException" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

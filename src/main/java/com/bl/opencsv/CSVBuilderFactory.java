@@ -1,6 +1,6 @@
-package com.bl.csvbuilderfactory;
-import com.bl.csvbuilderinterface.ICSVBuilder;
-import com.bl.opencsvbuilder.OpenCSVBuilder;
+package com.bl.opencsv;
+import com.bl.opencsv.ICSVBuilder;
+import com.bl.opencsv.OpenCSVBuilder;
 
 public class CSVBuilderFactory {
     public static ICSVBuilder createCSVBuilder() {

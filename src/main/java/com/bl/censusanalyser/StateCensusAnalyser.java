@@ -1,11 +1,11 @@
 package com.bl.censusanalyser;
 
-import com.bl.censusanalyserexception.CensusAnalyserException;
-import com.bl.csvbuilderfactory.CSVBuilderFactory;
-import com.bl.csvbuilderinterface.ICSVBuilder;
-import com.bl.csvcensusdao.CSVStateCensusDAO;
-import com.bl.csvstatecensus.CSVStateCensus;
-import com.bl.csvstatecode.CSVStateCode;
+import com.bl.exception.CensusAnalyserException;
+import com.bl.opencsv.CSVBuilderFactory;
+import com.bl.opencsv.ICSVBuilder;
+import com.bl.model.CSVStateCensusDAO;
+import com.bl.model.CSVStateCensus;
+import com.bl.model.CSVStateCode;
 import com.google.gson.Gson;
 import org.apache.commons.io.FilenameUtils;
 
@@ -13,11 +13,13 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 public class StateCensusAnalyser<E> {
 
     List<CSVStateCensusDAO> csvStateFile = null;
+    Map<String,CSVStateCensusDAO> csvMap = new HashMap<>();
 
     public StateCensusAnalyser() {
         this.csvStateFile = new ArrayList<CSVStateCensusDAO>();
@@ -27,10 +29,11 @@ public class StateCensusAnalyser<E> {
         try (Reader reader = Files.newBufferedReader(Paths.get(csvFilePath))){
             ICSVBuilder csvBuilder = CSVBuilderFactory.createCSVBuilder();
             Iterator<CSVStateCensus> csvCensusIterator = csvBuilder.getCSVFileIterator(reader,CSVStateCensus.class);
-            while (csvCensusIterator.hasNext()) {
-                this.csvStateFile.add(new CSVStateCensusDAO(csvCensusIterator.next()));
-            }
-            return this.csvStateFile.size();
+            Iterable<CSVStateCensus> stateCensusIterable = () -> csvCensusIterator;
+            StreamSupport.stream(stateCensusIterable.spliterator(), false)
+                    .forEach(censusCSV -> csvMap.put(censusCSV.state, new CSVStateCensusDAO(censusCSV)));
+            csvStateFile = csvMap.values().stream().collect(Collectors.toList());
+            return csvMap.size();
         }catch (IOException e) {
             throw new CensusAnalyserException(e.getMessage(),
                     CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM);
@@ -43,10 +46,11 @@ public class StateCensusAnalyser<E> {
         try (Reader reader = Files.newBufferedReader(Paths.get(csvFilePath));){
             ICSVBuilder csvBuilder = CSVBuilderFactory.createCSVBuilder();
             Iterator<CSVStateCode> csvStateCodeIterator = csvBuilder.getCSVFileIterator(reader, CSVStateCode.class);
-            while (csvStateCodeIterator.hasNext()) {
-                this.csvStateFile.add(new CSVStateCensusDAO(csvStateCodeIterator.next()));
-            }
-            return this.csvStateFile.size();
+            Iterable<CSVStateCode> stateCodeIterable = () -> csvStateCodeIterator;
+            StreamSupport.stream(stateCodeIterable.spliterator(), false)
+                    .filter(stateSCV -> csvMap.get(stateSCV.state) != null)
+                    .forEach(stateSCV -> csvMap.get(stateSCV.state).stateCode = stateSCV.stateCode);
+            return csvMap.size();
         } catch (IOException e) {
             throw new CensusAnalyserException(e.getMessage(),
                     CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM);
@@ -81,10 +85,10 @@ public class StateCensusAnalyser<E> {
         if (csvStateFile == null || csvStateFile.size() == 0){
             throw new CensusAnalyserException("No Census Data", CensusAnalyserException.ExceptionType.NO_CENSUS_DATA);
         }
-        Comparator<CSVStateCensusDAO> censusComparator = Comparator.comparing(census -> census.state);
-        this.sort(censusComparator,csvStateFile);
-        String sortedStateCensusJson = new Gson().toJson(csvStateFile);
-        return sortedStateCensusJson;
+        Comparator<CSVStateCensusDAO> dataComparator = Comparator.comparing(census -> census.state);
+        this.sort(dataComparator,csvStateFile);
+        String sortedStateDataJson = new Gson().toJson(csvStateFile);
+        return sortedStateDataJson;
     }
 
     public String getStateWiseSortedCodeData() {

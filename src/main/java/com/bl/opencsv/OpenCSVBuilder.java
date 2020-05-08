@@ -1,6 +1,5 @@
-package com.bl.opencsvbuilder;
+package com.bl.opencsv;
 
-import com.bl.csvbuilderinterface.ICSVBuilder;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
 
