@@ -15,16 +15,16 @@ public class OpenCSVBuilder<E> implements ICSVBuilder<E> {
         return this.getCsvToBean(reader, csvClass).iterator();
     }
 
-    @Override
-    public List getCSVFileList(Reader reader, Class csvClass) {
-        return this.getCsvToBean(reader, csvClass).parse();
-    }
+   @Override
+   public List getCSVFileList(Reader reader, Class csvClass) {
+       return this.getCsvToBean(reader, csvClass).parse();
+   }
 
-    private CsvToBean<E> getCsvToBean(Reader reader, Class csvClass) {
-        CsvToBeanBuilder<E> csvToBeanBuilder = new CsvToBeanBuilder<>(reader);
-        csvToBeanBuilder.withType(csvClass);
-        csvToBeanBuilder.withIgnoreLeadingWhiteSpace(true);
-        return csvToBeanBuilder.build();
+   private CsvToBean<E> getCsvToBean(Reader reader, Class csvClass) {
+            CsvToBeanBuilder<E> csvToBeanBuilder = new CsvToBeanBuilder<>(reader);
+            csvToBeanBuilder.withType(csvClass);
+            csvToBeanBuilder.withIgnoreLeadingWhiteSpace(true);
+            return csvToBeanBuilder.build();
     }
 
 }
