@@ -13,7 +13,6 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
-import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 public class StateCensusAnalyser<E> {
@@ -98,12 +97,22 @@ public class StateCensusAnalyser<E> {
         return sortedStateCodeJson;
     }
 
+    public String getStateWiseSortedPopulationData() throws CensusAnalyserException {
+        if (csvStateFile.size() == 0 | csvStateFile == null) {
+            throw new CensusAnalyserException("No Census Data", CensusAnalyserException.ExceptionType.NO_CENSUS_DATA);
+        }
+        Comparator<CSVStateCensusDAO> censusComparator = Comparator.comparing(census -> census.population);
+        this.sort(censusComparator,csvStateFile);
+        String sortedStateCensusJson = new Gson().toJson(csvStateFile);
+        return sortedStateCensusJson;
+    }
 
-    private<E> void sort(Comparator<E> censusComparator,List<E> csvFileList) {
+
+    private<E> void sort(Comparator<CSVStateCensusDAO> censusComparator,List<CSVStateCensusDAO> csvFileList) {
         for (int i = 0; i < csvFileList.size() - 1; i++) {
             for (int j = 0; j < csvFileList.size() - 1 - i; j++) {
-                E census1 = csvFileList.get(j);
-                E census2 = csvFileList.get(j + 1);
+                CSVStateCensusDAO census1 = csvFileList.get(j);
+                CSVStateCensusDAO census2 = csvFileList.get(j + 1);
                 if (censusComparator.compare(census1, census2) > 0) {
                     csvFileList.set(j, census2);
                     csvFileList.set(j + 1, census1);
