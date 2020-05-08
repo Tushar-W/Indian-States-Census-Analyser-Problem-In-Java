@@ -176,4 +176,14 @@ public class StateCensusAnalyserTest {
             Assert.assertEquals(199812341, csvStateCensus[28].population);
         } catch (CensusAnalyserException e) { }
     }
+
+    @Test
+    public void givenStateCensusDensityData_whenSortedOnStates_shouldReturnSortedResult() {
+        try {
+            stateCensusAnalyser.loadIndianStateCensusData(INDIAN_STATES_CENSUS_CSV_FILE_PATH);
+            String sortedCensusData = stateCensusAnalyser.getStateWiseSortedDensityData();
+            CSVStateCensus[] csvStateCensus = new Gson().fromJson(sortedCensusData, CSVStateCensus[].class);
+            Assert.assertEquals(50, csvStateCensus[0].densityPerSqKm);
+        } catch (CensusAnalyserException e) { }
+    }
 }
