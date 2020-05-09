@@ -1,6 +1,7 @@
 package com.bl.censusanalyser;
 
 import com.bl.exception.CensusAnalyserException;
+import com.bl.model.USCensusCSV;
 import com.bl.opencsv.CSVBuilderFactory;
 import com.bl.opencsv.ICSVBuilder;
 import com.bl.model.CSVStateCensusDAO;
@@ -32,7 +33,7 @@ public class StateCensusAnalyser<E> {
             Iterable<CSVStateCensus> stateCensusIterable = () -> csvCensusIterator;
             StreamSupport.stream(stateCensusIterable.spliterator(), false)
                     .forEach(censusCSV -> csvMap.put(censusCSV.state, new CSVStateCensusDAO(censusCSV)));
-            csvStateFile = csvMap.values().stream().collect(Collectors.toList());
+            csvStateFile = new ArrayList<CSVStateCensusDAO>(csvMap.values());
             return csvMap.size();
         }catch (IOException e) {
             throw new CensusAnalyserException(e.getMessage(),
@@ -115,7 +116,7 @@ public class StateCensusAnalyser<E> {
         if (csvStateFile.size() == 0 | csvStateFile == null) {
             throw new CensusAnalyserException("No Census Data", CensusAnalyserException.ExceptionType.NO_CENSUS_DATA);
         }
-        Comparator<CSVStateCensusDAO> censusComparator = Comparator.comparing(census -> census.densityPerSqKm);
+        Comparator<CSVStateCensusDAO> censusComparator = Comparator.comparing(census -> census.populationDensity);
         this.sort(censusComparator,csvStateFile);
         String sortedStateCensusJson = new Gson().toJson(csvStateFile);
         return sortedStateCensusJson;
@@ -125,7 +126,7 @@ public class StateCensusAnalyser<E> {
         if (csvStateFile.size() == 0 | csvStateFile == null) {
             throw new CensusAnalyserException("No Census Data", CensusAnalyserException.ExceptionType.NO_CENSUS_DATA);
         }
-        Comparator<CSVStateCensusDAO> censusComparator = Comparator.comparing(census -> census.areaInSqKm);
+        Comparator<CSVStateCensusDAO> censusComparator = Comparator.comparing(census -> census.totalArea);
         this.sort(censusComparator,csvStateFile);
         String sortedStateCensusJson = new Gson().toJson(csvStateFile);
         return sortedStateCensusJson;
@@ -141,6 +142,23 @@ public class StateCensusAnalyser<E> {
                     csvFileList.set(j + 1, census1);
                 }
             }
+        }
+    }
+
+    public int loadUSCensusData(String csvFilePath) {
+        try (Reader reader = Files.newBufferedReader(Paths.get(csvFilePath))){
+            ICSVBuilder csvBuilder = CSVBuilderFactory.createCSVBuilder();
+            Iterator<USCensusCSV> csvCensusIterator = csvBuilder.getCSVFileIterator(reader,USCensusCSV.class);
+            Iterable<USCensusCSV> stateCensusIterable = () -> csvCensusIterator;
+            StreamSupport.stream(stateCensusIterable.spliterator(), false)
+                    .forEach(usCensusCSV -> csvMap.put(usCensusCSV.State, new CSVStateCensusDAO(usCensusCSV)));
+            csvStateFile = csvMap.values().stream().collect(Collectors.toList());
+            return csvMap.size();
+        }catch (IOException e) {
+            throw new CensusAnalyserException(e.getMessage(),
+                    CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM);
+        }catch(RuntimeException e) {
+            throw new CensusAnalyserException(e.getMessage(), CensusAnalyserException.ExceptionType.FILE_WRONG_HEADER);
         }
     }
 }

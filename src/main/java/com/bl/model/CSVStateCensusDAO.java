@@ -1,20 +1,17 @@
 package com.bl.model;
 
-import com.bl.model.CSVStateCensus;
-import com.bl.model.CSVStateCode;
-
 public class CSVStateCensusDAO {
 
     public String stateCode;
     public int population;
-    public int areaInSqKm;
-    public int densityPerSqKm;
+    public double totalArea;
+    public double populationDensity;
     public  String state;
 
     public CSVStateCensusDAO(CSVStateCensus indiaCensusCSV) {
         state = indiaCensusCSV.state;
-        densityPerSqKm = indiaCensusCSV.densityPerSqKm;
-        areaInSqKm = indiaCensusCSV.areaInSqKm;
+        populationDensity = indiaCensusCSV.densityPerSqKm;
+        totalArea = indiaCensusCSV.areaInSqKm;
         population = indiaCensusCSV.population;
     }
 
@@ -22,7 +19,18 @@ public class CSVStateCensusDAO {
         stateCode = indiaCodeCSV.stateCode;
     }
 
-    public CSVStateCensusDAO() {
+    public CSVStateCensusDAO(USCensusCSV usCensusCSV) {
+        state = usCensusCSV.State;
+        stateCode = usCensusCSV.StateID;
+        populationDensity = usCensusCSV.PopulationDensity;
+        totalArea = usCensusCSV.Area;
+        population = usCensusCSV.Population;
     }
+    public CSVStateCensus getIndiaCensusCSV(){
+        return new CSVStateCensus(state,population,populationDensity,totalArea);
+    }
+    
+    
+    
 }
 
