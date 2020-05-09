@@ -3,6 +3,7 @@ package com.bl.censusanalyser;
 import com.bl.exception.CensusAnalyserException;
 import com.bl.model.CSVStateCensus;
 import com.bl.model.CSVStateCode;
+import com.bl.model.USCensusCSV;
 import com.google.gson.Gson;
 import org.junit.Assert;
 import org.junit.Before;
@@ -229,5 +230,15 @@ public class StateCensusAnalyserTest {
     public void givenUSStateCensusCSVFile_ShouldReturnsCorrectRecords() {
         int noOfRecords = stateCensusAnalyser.loadStateCensusData(StateCensusAnalyser.Country.US,US_STATES_CENSUS_CSV_FILE_PATH);
         Assert.assertEquals(51, noOfRecords);
+    }
+
+    @Test
+    public void givenUSStateCensusData_WhenSortedOnStates_ShouldReturnSortedResult() {
+        try {
+            stateCensusAnalyser.loadStateCensusData(StateCensusAnalyser.Country.US,US_STATES_CENSUS_CSV_FILE_PATH);
+            String sortedCensusData = stateCensusAnalyser.getStateWiseSortedData("population");
+            USCensusCSV csvStateCensus[] = new Gson().fromJson(sortedCensusData, USCensusCSV[].class);
+            Assert.assertEquals("California", csvStateCensus[0].State);
+        } catch(CensusAnalyserException e) { e.printStackTrace(); }
     }
 }
