@@ -1,8 +1,5 @@
 package com.bl.censusanalyser;
 
-import com.bl.model.CSVStateCensus;
-import com.bl.model.CSVStateCensusDAO;
-
 public class ConstantsFieldsOfTest {
     protected static StateCensusAnalyser stateCensusAnalyser;
     protected static final String INDIAN_STATES_CENSUS_CSV_FILE_PATH = "./src/test/resources/IndiaStateCensusData.csv";
