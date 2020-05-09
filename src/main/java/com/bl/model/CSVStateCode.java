@@ -8,4 +8,7 @@ public class CSVStateCode {
 
         @CsvBindByName(column = "StateCode", required = true)
         public String stateCode;
+
+    public CSVStateCode(String state, String stateCode) {
+    }
 }

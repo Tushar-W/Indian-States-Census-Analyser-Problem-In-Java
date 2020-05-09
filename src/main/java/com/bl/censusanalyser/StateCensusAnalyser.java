@@ -12,8 +12,13 @@ import java.util.stream.StreamSupport;
 
 public class StateCensusAnalyser<E> {
 
-   public enum Country { INDIA, US }
+    public enum Country { INDIA, US }
+    private  Country country;
     Map<String,CSVStateCensusDAO> csvMap = new HashMap<>();
+
+    public StateCensusAnalyser(Country country) {
+        this.country = country;
+    }
 
     public int loadStateCensusData(Country country, String... csvFilePath) {
         csvMap = new CensusAdapterFactory().getCensusData(country, csvFilePath);
@@ -69,22 +74,11 @@ public class StateCensusAnalyser<E> {
             throw new CensusAnalyserException("No Census Data", CensusAnalyserException.ExceptionType.NO_CENSUS_DATA);
         }
         Comparator<CSVStateCensusDAO> dataComparator = sortedColumnWiseData(columnName);
-        List<CSVStateCensusDAO> censusDAOS = csvMap.values().stream().collect(Collectors.toList());
-        this.sort(dataComparator,censusDAOS);
-        String sortedStateDataJson = new Gson().toJson(censusDAOS);
+        ArrayList censusDTOS = csvMap.values().stream().
+                                    sorted(dataComparator).
+                                    map(csvStateCensusDAO -> csvStateCensusDAO.getCensusDTO(country)).
+                                    collect(Collectors.toCollection(ArrayList::new));
+        String sortedStateDataJson = new Gson().toJson(censusDTOS);
         return sortedStateDataJson;
-    }
-
-    private<E> void sort(Comparator<CSVStateCensusDAO> censusComparator,List<CSVStateCensusDAO> censusDAOS) {
-        for (int i = 0; i < censusDAOS.size() - 1; i++) {
-            for (int j = 0; j < censusDAOS.size() - 1 - i; j++) {
-                CSVStateCensusDAO census1 = censusDAOS.get(j);
-                CSVStateCensusDAO census2 = censusDAOS.get(j + 1);
-                if (censusComparator.compare(census1, census2) > 0) {
-                    censusDAOS.set(j, census2);
-                    censusDAOS.set(j + 1, census1);
-                }
-            }
-        }
     }
 }

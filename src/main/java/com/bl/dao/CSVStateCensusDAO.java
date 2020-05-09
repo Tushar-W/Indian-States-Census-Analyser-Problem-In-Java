@@ -1,5 +1,6 @@
 package com.bl.dao;
 
+import com.bl.censusanalyser.StateCensusAnalyser;
 import com.bl.model.CSVStateCensus;
 import com.bl.model.CSVStateCode;
 import com.bl.model.USCensusCSV;
@@ -26,9 +27,18 @@ public class CSVStateCensusDAO {
     public CSVStateCensusDAO(USCensusCSV usCensusCSV) {
         state = usCensusCSV.State;
         stateCode = usCensusCSV.StateID;
+        population = usCensusCSV.Population;
         populationDensity = usCensusCSV.PopulationDensity;
         totalArea = usCensusCSV.Area;
-        population = usCensusCSV.Population;
+
+    }
+
+    public Object getCensusDTO(StateCensusAnalyser.Country country) {
+        if(country.equals(StateCensusAnalyser.Country.US))
+            return new USCensusCSV(state,stateCode,population,populationDensity,totalArea);
+        else if(country.equals(StateCensusAnalyser.Country.INDIA))
+            return new CSVStateCensus(state,population,(int)populationDensity,(int)totalArea);
+        return new CSVStateCode(state,stateCode);
     }
 }
 
