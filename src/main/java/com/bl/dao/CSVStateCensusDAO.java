@@ -30,11 +30,5 @@ public class CSVStateCensusDAO {
         totalArea = usCensusCSV.Area;
         population = usCensusCSV.Population;
     }
-    public CSVStateCensus getIndiaCensusCSV(){
-        return new CSVStateCensus(state,population,populationDensity,totalArea);
-    }
-    
-    
-    
 }
 

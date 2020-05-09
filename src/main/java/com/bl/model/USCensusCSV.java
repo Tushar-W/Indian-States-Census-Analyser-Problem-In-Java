@@ -3,19 +3,19 @@ package com.bl.model;
 import com.opencsv.bean.CsvBindByName;
 
 public class USCensusCSV {
-    @CsvBindByName(column = "State Id")
+    @CsvBindByName(column = "StateId")
     public String StateID;
 
     @CsvBindByName(column = "State")
     public String State;
 
-    @CsvBindByName(column = "Population Density")
+    @CsvBindByName(column = "PopulationDensity")
     public double PopulationDensity;
 
     @CsvBindByName(column = "Population")
     public int Population;
 
-    @CsvBindByName(column = "Total area")
+    @CsvBindByName(column = "TotalArea")
     public double Area;
 
 
@@ -24,9 +24,9 @@ public class USCensusCSV {
         return "USCensusCSV{" +
                 "StateID='" + StateID + '\'' +
                 ", State='" + State + '\'' +
-                ", PopulationDensity='" + PopulationDensity + '\'' +
-                ", Population='" + Population + '\'' +
-                ", Area='" + Area + '\'' +
+                ", PopulationDensity=" + PopulationDensity +
+                ", Population=" + Population +
+                ", Area=" + Area +
                 '}';
     }
 }
