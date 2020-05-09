@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.bl.censusanalyser.StateCensusAnalyserTest" tests="18" skipped="0" failures="0" errors="0" timestamp="2020-05-09T18:09:31" hostname="DESKTOP-2TJPHRI" time="0.37">
+<testsuite name="com.bl.censusanalyser.StateCensusAnalyserTest" tests="18" skipped="0" failures="0" errors="0" timestamp="2020-05-09T20:19:08" hostname="DESKTOP-2TJPHRI" time="1.461">
   <properties/>
-  <testcase name="givenIndiaStateCensusData_WithWrongFile_ShouldThrowException" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.014"/>
-  <testcase name="givenIndianStateCodeData_WhenSortedOnState_ShouldReturnSortedResult" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.093"/>
+  <testcase name="givenIndiaStateCensusData_WithWrongFile_ShouldThrowException" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.048"/>
+  <testcase name="givenIndianStateCodeData_WhenSortedOnState_ShouldReturnSortedResult" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.518"/>
   <testcase name="givenIndiaStateCodeData_WithWrongFile_ShouldThrowException" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.001"/>
   <testcase name="givenIndiaStateCodeCSVFile_WhenWrongType_ShouldThrowException" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.005"/>
   <testcase name="givenIndiaStateCensusCSVFile_WhenWrongDelimiter_ShouldThrowException" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.001"/>
@@ -11,13 +11,13 @@
   <testcase name="givenIndianStateCodeCSVFile_ShouldReturnsCorrectRecords" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.001"/>
   <testcase name="givenIndianCensusData_WhenSortedOnState_ShouldReturnSortedResult" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.001"/>
   <testcase name="givenIndianCensusData_WhenSortedOnState_ShouldReturnEndState" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.001"/>
-  <testcase name="givenIndiaStateCensusCSVFile_WhenWrongHeader_ShouldThrowException" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.032"/>
-  <testcase name="givenIndiaStateCodeCSVFile_WhenWrongHeader_ShouldThrowException" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.003"/>
+  <testcase name="givenIndiaStateCensusCSVFile_WhenWrongHeader_ShouldThrowException" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.116"/>
+  <testcase name="givenIndiaStateCodeCSVFile_WhenWrongHeader_ShouldThrowException" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.002"/>
   <testcase name="givenStateCensusAreaData_WhenSortedOnStates_ShouldReturnSortedResult" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.001"/>
-  <testcase name="givenIndiaStateCensusCSVFile_WhenWrongType_ShouldThrowException" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.0"/>
-  <testcase name="givenUSStateCensusCSVFile_ShouldReturnsCorrectRecords" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.205"/>
+  <testcase name="givenIndiaStateCensusCSVFile_WhenWrongType_ShouldThrowException" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.001"/>
+  <testcase name="givenUSStateCensusCSVFile_ShouldReturnsCorrectRecords" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.752"/>
   <testcase name="givenStateCensusDensityData_WhenSortedOnStates_ShouldReturnSortedResult" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.002"/>
-  <testcase name="givenIndianStateCensusCSVFile_ShouldReturnsCorrectRecords" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.001"/>
+  <testcase name="givenIndianStateCensusCSVFile_ShouldReturnsCorrectRecords" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.0"/>
   <testcase name="givenIndiaStateCodeCSVFile_WhenWrongDelimiter_ShouldThrowException" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

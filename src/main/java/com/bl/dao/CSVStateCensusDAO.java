@@ -1,4 +1,8 @@
-package com.bl.model;
+package com.bl.dao;
+
+import com.bl.model.CSVStateCensus;
+import com.bl.model.CSVStateCode;
+import com.bl.model.USCensusCSV;
 
 public class CSVStateCensusDAO {
 

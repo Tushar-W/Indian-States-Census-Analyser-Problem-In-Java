@@ -1,8 +1,8 @@
 package com.bl.censusanalyser;
 
+import com.bl.adapter.CensusAdapterFactory;
 import com.bl.exception.CensusAnalyserException;
-import com.bl.model.CSVStateCensusDAO;
-import com.bl.model.CSVStateCensus;
+import com.bl.dao.CSVStateCensusDAO;
 import com.google.gson.Gson;
 import org.apache.commons.io.FilenameUtils;
 
@@ -16,7 +16,7 @@ public class StateCensusAnalyser<E> {
     Map<String,CSVStateCensusDAO> csvMap = new HashMap<>();
 
     public int loadStateCensusData(Country country, String... csvFilePath) {
-        csvMap = new CensusDataLoader().loadCensusData(country, csvFilePath);
+        csvMap = new CensusAdapterFactory().getCensusData(country, csvFilePath);
         return csvMap.size();
     }
 
