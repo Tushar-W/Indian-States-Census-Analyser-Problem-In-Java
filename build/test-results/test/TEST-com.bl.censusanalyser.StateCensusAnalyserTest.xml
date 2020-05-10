@@ -1,25 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.bl.censusanalyser.StateCensusAnalyserTest" tests="19" skipped="0" failures="0" errors="0" timestamp="2020-05-09T23:53:22" hostname="DESKTOP-2TJPHRI" time="5.337">
+<testsuite name="com.bl.censusanalyser.StateCensusAnalyserTest" tests="23" skipped="0" failures="0" errors="0" timestamp="2020-05-10T00:18:49" hostname="DESKTOP-2TJPHRI" time="11.739">
   <properties/>
-  <testcase name="givenIndiaStateCensusData_WithWrongFile_ShouldThrowException" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.019"/>
-  <testcase name="givenIndianStateCodeData_WhenSortedOnState_ShouldReturnSortedResult" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="4.353"/>
-  <testcase name="givenIndiaStateCodeData_WithWrongFile_ShouldThrowException" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.001"/>
-  <testcase name="givenIndiaStateCodeCSVFile_WhenWrongType_ShouldThrowException" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.006"/>
-  <testcase name="givenIndiaStateCensusCSVFile_WhenWrongDelimiter_ShouldThrowException" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.001"/>
-  <testcase name="givenUSStateCensusData_WhenSortedOnStates_ShouldReturnSortedResult" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.665"/>
-  <testcase name="givenStateCensusPopulationData_WhenSortedOnStates_ShouldReturnSortedResult" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.002"/>
-  <testcase name="givenIndianStateCodeData_WhenSortedOnState_ShouldReturnSortedEndStateCode" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.002"/>
-  <testcase name="givenIndianStateCodeCSVFile_ShouldReturnsCorrectRecords" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.003"/>
+  <testcase name="givenIndiaStateCensusData_WithWrongFile_ShouldThrowException" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="5.031"/>
+  <testcase name="givenIndianStateCodeData_WhenSortedOnState_ShouldReturnSortedResult" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.104"/>
+  <testcase name="givenIndiaStateCodeData_WithWrongFile_ShouldThrowException" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.0"/>
+  <testcase name="givenIndiaStateCodeCSVFile_WhenWrongType_ShouldThrowException" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.004"/>
+  <testcase name="givenIndiaStateCensusCSVFile_WhenWrongDelimiter_ShouldThrowException" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.0"/>
+  <testcase name="givenUSStateCensusData_WhenSortedOnStates_ShouldReturnSortedResult" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.452"/>
+  <testcase name="givenStateCensusPopulationData_WhenSortedOnStates_ShouldReturnSortedResult" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.001"/>
+  <testcase name="givenIndianStateCodeData_WhenSortedOnState_ShouldReturnSortedEndStateCode" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.001"/>
+  <testcase name="givenIndianStateCodeCSVFile_ShouldReturnsCorrectRecords" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.001"/>
   <testcase name="givenIndianCensusData_WhenSortedOnState_ShouldReturnSortedResult" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.002"/>
+  <testcase name="givenUSStateCensusData_WhenSortedOnPopulationDensity_ShouldReturnSortedResult" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.201"/>
   <testcase name="givenIndianCensusData_WhenSortedOnState_ShouldReturnEndState" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.001"/>
-  <testcase name="givenIndiaStateCensusCSVFile_WhenWrongHeader_ShouldThrowException" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.05"/>
+  <testcase name="givenIndiaStateCensusCSVFile_WhenWrongHeader_ShouldThrowException" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="5.125"/>
   <testcase name="givenIndiaStateCodeCSVFile_WhenWrongHeader_ShouldThrowException" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.001"/>
-  <testcase name="givenStateCensusAreaData_WhenSortedOnStates_ShouldReturnSortedResult" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.0"/>
-  <testcase name="givenIndiaStateCensusCSVFile_WhenWrongType_ShouldThrowException" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.0"/>
-  <testcase name="givenUSStateCensusCSVFile_ShouldReturnsCorrectRecords" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.216"/>
+  <testcase name="givenStateCensusAreaData_WhenSortedOnStates_ShouldReturnSortedResult" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.001"/>
+  <testcase name="givenIndiaStateCensusCSVFile_WhenWrongType_ShouldThrowException" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.001"/>
+  <testcase name="givenUSStateCensusData_WhenSortedOnArea_ShouldReturnSortedResult" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.241"/>
+  <testcase name="givenUSStateCensusCSVFile_ShouldReturnsCorrectRecords" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.161"/>
   <testcase name="givenStateCensusDensityData_WhenSortedOnStates_ShouldReturnSortedResult" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.001"/>
   <testcase name="givenIndianStateCensusCSVFile_ShouldReturnsCorrectRecords" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.001"/>
   <testcase name="givenIndiaStateCodeCSVFile_WhenWrongDelimiter_ShouldThrowException" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.0"/>
+  <testcase name="givenUSStateCensusData_WhenSortedOnPopulation_ShouldReturnSortedEndState" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.202"/>
+  <testcase name="givenUSStateCensusData_WhenSortedOnPopulation_ShouldReturnSortedResult" classname="com.bl.censusanalyser.StateCensusAnalyserTest" time="0.197"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
